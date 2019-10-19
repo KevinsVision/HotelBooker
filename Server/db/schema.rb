@@ -36,14 +36,12 @@ ActiveRecord::Schema.define(version: 2019_05_30_135017) do
 
   create_table "hotels", force: :cascade do |t|
     t.string "name"
-    t.integer "nights"
+    t.integer "price"
     t.integer "stars"
     t.string "location"
     t.string "url"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_hotels_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,5 +52,4 @@ ActiveRecord::Schema.define(version: 2019_05_30_135017) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "hotels", "users"
 end
