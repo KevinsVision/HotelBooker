@@ -9,12 +9,21 @@ class BookingsController < ApplicationController
         end 
     end
 
+    def show
+        booking = Booking.find_by(id: params[:id])
+        if booking
+            render json: booking
+        else
+            render json: {error: 'Booking not found.'}, status: 400
+        end
+    end
+
     def create
         booking = booking.new(
             review: params[:review],
             user_id: params[:user_id],
-            hotel_id: params[:name], 
-            flight_id: params[:flight_id], 
+            hotel_id: params[:hotel_id], 
+            flight_id: params[:flight_id]
             )
         if booking.save
                 render json: booking

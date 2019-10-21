@@ -9,5 +9,14 @@ class FlightsController < ApplicationController
        end
     end
 
+    def show
+        flight = Flight.find_by(id: params[:id])
+        if flight
+            render json: flight
+        else
+            render json: {error: 'Flight not found.'}, status: 400
+        end
+    end
+
 
 end
