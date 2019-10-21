@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(
+kevin = User.create(
     first_name: "Kevin",
     last_name: "Lopez",
     nationality: "American"
@@ -144,9 +144,9 @@ Flight.create(
 )
 
 
-Booking.create(
-    review: "Clean Hotel, No delays",
-    user_id: User.first.id,
-    hotel_id: Hotel.first.id,
-    flight_id: Flight.first.id
-)
+# Booking.create(
+#     review: "Clean Hotel, No delays",
+#     user_id: User.first.id,
+#     hotel_id: Hotel.first.id,
+#     flight_id: Flight.first.id
+# )
