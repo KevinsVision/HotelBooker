@@ -3,6 +3,7 @@
    const HOTEL_URL = 'http://localhost:3000/hotels'
    const USERS_URL = 'http://localhost:3000/users'
    const FLIGHTS_URL = 'http://localhost:3000/flights'
+   const BOOKINGS_URL = 'http://localhost:3000/bookings'
     //*This is my fetch to user
     getUserHotelBookings = () =>
     fetch(USERS_URL + `/${USER_ID}`).then(users => users.json())
@@ -14,7 +15,7 @@
       //*create a new hotel
       
    const createHotelBooking = (id,hotel) => {
-    fetch(HOTEL_URL,{
+    fetch(BOOKINGS_URL,{
       method: `POST`,
       headers: {
           'Accept': 'application/json',

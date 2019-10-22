@@ -58,8 +58,8 @@ const goBack = (event) => {
     }
   }
 
-const addHotels = (fetchHotels) => 
-fetchHotels.forEach( hotel => renderHotel(hotel))
+const addHotels = (hotels) => 
+hotels.forEach( hotel => renderHotel(hotel))
   //* taking apart the hash of hotels and invoking the method to populate my dom
   // with one hotel at a time 
 
@@ -70,10 +70,10 @@ const renderHotel = (hotel) => {
   hotelCard.innerHTML =`
     <h2 class="hotel_name"> ${hotel.name} </h2>
     <img class="hotel_image"src="${hotel.url}"/>
-    <button class="stars" type="button" disabled > ${hotel.stars} Stars *** </button>
+    <h3> ${hotel.stars} * Stars</h3>
     <p style='text-align:center'> Relax and Enjoy <button class='book-hotel' id='${hotel.name}'>Book your Hotel</button></p>
     <p> From $${hotel.price} per night </p>
-    <p> <strong>Location:</strong>${hotel.location}</p>
+    <p> <strong>Location: </strong>${hotel.location}</p>
     `
     const bookHotelBtn = hotelCard.querySelector('.book-hotel')
 

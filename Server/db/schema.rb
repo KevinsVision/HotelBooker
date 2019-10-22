@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2019_05_30_135017) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "review"
+    t.integer "rating"
     t.integer "user_id"
     t.integer "hotel_id"
     t.integer "flight_id"
@@ -27,9 +28,8 @@ ActiveRecord::Schema.define(version: 2019_05_30_135017) do
   create_table "flights", force: :cascade do |t|
     t.string "to"
     t.string "from"
-    t.datetime "departure"
-    t.datetime "arrival"
-    t.string "price"
+    t.string "departure"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
