@@ -10,7 +10,8 @@ const bookingsList = document.querySelector(`#bookings-list`)
 const bookingFormEl = document.querySelector(`#add-a-booking`)
 const hiddennField = document.querySelector("#specific-hotel")
 document.addEventListener("DOMContentLoaded", () => {
-  addHotels(hotels)
+  
+  fetchHotels().then(addHotels)
   //! a)
   // getUserHotelBookings().then(addBookings)
   //! b) 
@@ -57,8 +58,8 @@ const goBack = (event) => {
     }
   }
 
-const addHotels = (hotels) => 
-  hotels.forEach( hotel => renderHotel(hotel))
+const addHotels = (fetchHotels) => 
+fetchHotels.forEach( hotel => renderHotel(hotel))
   //* taking apart the hash of hotels and invoking the method to populate my dom
   // with one hotel at a time 
 
@@ -71,7 +72,7 @@ const renderHotel = (hotel) => {
     <img class="hotel_image"src="${hotel.url}"/>
     <button class="stars" type="button" disabled > ${hotel.stars} Stars *** </button>
     <p style='text-align:center'> Relax and Enjoy <button class='book-hotel' id='${hotel.name}'>Book your Hotel</button></p>
-    <p> From ${hotel.price} per night </p>
+    <p> From $${hotel.price} per night </p>
     <p> <strong>Location:</strong>${hotel.location}</p>
     `
     const bookHotelBtn = hotelCard.querySelector('.book-hotel')
