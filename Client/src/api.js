@@ -4,15 +4,17 @@
    const USERS_URL = 'http://localhost:3000/users'
    const FLIGHTS_URL = 'http://localhost:3000/flights'
    const BOOKINGS_URL = 'http://localhost:3000/bookings'
+
+
     //*This is my fetch to user
     getUserHotelBookings = () =>
     fetch(USERS_URL + `/${USER_ID}`).then(users => users.json())
 
     // This is my fetch to Hotels
     fetchHotels = () =>
-    fetch(HOTEL_URL).then (hotels => hotels.json())
+    fetch(HOTEL_URL).then (resp => resp.json())
 
-      //*create a new hotel
+    //*create a new hotel
       
    const createHotelBooking = (id,hotel) => {
     fetch(BOOKINGS_URL,{
@@ -57,6 +59,8 @@
         .then(resp => resp.json())
  }
 
+
+ // This is my fetch to Hotels
 
  const fetchFlights = () => 
  fetch(FLIGHTS_URL).then(resp => resp.json())

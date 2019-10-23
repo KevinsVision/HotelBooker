@@ -5,19 +5,61 @@ const checkBookings= document.querySelector('.bookings')
  let addBooking = false
  let bookingToggle = false
 
-const hotelList= document.querySelector(`#hotel-list`);
+const hotelList= document.querySelector(`#hotel-list`)
 const bookingsList = document.querySelector(`#bookings-list`)
 const bookingFormEl = document.querySelector(`#add-a-booking`)
 const hiddennField = document.querySelector("#specific-hotel")
 document.addEventListener("DOMContentLoaded", () => {
   
   fetchHotels().then(addHotels)
+
+  addBookings()
+
+  fetchFlights().then(addFlights)
   //! a)
   // getUserHotelBookings().then(addBookings)
   //! b) 
-  addBookings()
   
 })
+
+//////////////////////////////////////////////////////
+
+const addFlights = (flights) => 
+flights.forEach( flight => renderFlight(flight))
+  //* taking apart the hash of flights and invoking the method to populate my dom
+  // with one hotel at a time 
+
+
+const renderFlight = (flight) => {
+  let flightCard = document.createElement(`div`)
+  flightCard.className ="add-a-booking"
+  flightCard.innerHTML =`
+    <h2 class="flight_name"> Flying to: ${flight.to} </h2>
+    <h3> During the month of ${flight.departure}</h3>
+    <h2 class="flight_name"> Flying from: ${flight.from} </h2>
+    <p> Avergae Month Price $${flight.price} </p>
+    `
+  //   const bookHotelBtn = hotelCard.querySelector('.book-hotel')
+
+  //   bookHotelBtn.addEventListener("click", (event) =>{
+  // addBooking = !addBooking
+  // if(addBooking || checkBookings.style.display == "block"){
+  //   checkBookings.style.display = "none"  
+  //   bookingToggle = false 
+  //   BookingForm.style.display = "block"
+  // }else {
+  // BookingForm.style.display = 'none'
+  // }
+  // hiddennField.value = event.target.id
+  // })
+
+    // wanted to disable the stars buttons for the hotels list
+  //  hotelCard.documentquerySelector(".stars").disabled = true
+  bookingFormEl.append(flightCard)
+}
+
+/////////////////////////////////////////////////////////////////////
+
 
   
   viewBookingsBtn.addEventListener("click", () => {
@@ -96,7 +138,6 @@ const renderHotel = (hotel) => {
 
 
 
-
 //* when we make booking i update the server 
 bookingFormEl.addEventListener("submit",e => {
   e.preventDefault()
@@ -115,16 +156,12 @@ e.target.reset()
 })
 
 
-
-
-
 //* i want the user to see a list of their previo
 let addBookings = () => {
   // getUserHotelBookings()
   // .then(resp => resp.hotels.forEach(booking => renderBooking(booking)))
   bookingsApi.forEach(booking => renderBooking(booking))
 }
-
 
 
 //function that renders the users hotels  and appends to checkboooings div
@@ -140,7 +177,6 @@ let renderBooking = booking =>{
     <p>To ${booking.flight.to} </p>
     <p> From ${booking.flight.from} </p>
     <p>departure: ${booking.flight.departure}</p>
-    <p>arrival: ${booking.flight.arrival}</p>
     <p>price: ${booking.flight.price}</p>
     <button onclick="goBack(event)" id="goback"> Go back  </button> 
   </div>
