@@ -32,12 +32,16 @@ flights.forEach( flight => renderFlight(flight))
 
 const renderFlight = (flight) => {
   let flightCard = document.createElement(`div`)
-  flightCard.className ="add-a-booking"
+  flightCard.className ="flights"
   flightCard.innerHTML =`
-    <h2 class="flight_name"> Flying to: ${flight.to} </h2>
-    <h3> During the month of ${flight.departure}</h3>
-    <h2 class="flight_name"> Flying from: ${flight.from} </h2>
-    <p> Avergae Month Price $${flight.price} </p>
+  <table id="flights">
+  <tr>
+    <th>Flying to:</th>
+    <th>During the Month of:</th>
+    <th>Flying from:</th>
+    <th>Lowest Price $</th>
+  </tr>
+  </table>
     `
   //   const bookHotelBtn = hotelCard.querySelector('.book-hotel')
 
