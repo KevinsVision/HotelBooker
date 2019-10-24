@@ -27,8 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const addFlights = (flights) => 
 flights.forEach( flight => renderFlight(flight))
   //* taking apart the hash of flights and invoking the method to populate my dom
-  // with one hotel at a time 
-
+  // with one flight at a time 
 
 const renderFlight = (flight) => {
   let flightCard = document.createElement(`div`)
@@ -39,26 +38,16 @@ const renderFlight = (flight) => {
     <th>Flying to:</th>
     <th>During the Month of:</th>
     <th>Flying from:</th>
-    <th>Lowest Price $</th>
+    <th>Lowest Price $$</th>
+  </tr>
+  <tr>
+    <td>${flight.to}</td>
+    <td>${flight.departure}</td>
+    <td>${flight.from}</td>
+    <td>$${flight.price}</td>
   </tr>
   </table>
     `
-  //   const bookHotelBtn = hotelCard.querySelector('.book-hotel')
-
-  //   bookHotelBtn.addEventListener("click", (event) =>{
-  // addBooking = !addBooking
-  // if(addBooking || checkBookings.style.display == "block"){
-  //   checkBookings.style.display = "none"  
-  //   bookingToggle = false 
-  //   BookingForm.style.display = "block"
-  // }else {
-  // BookingForm.style.display = 'none'
-  // }
-  // hiddennField.value = event.target.id
-  // })
-
-    // wanted to disable the stars buttons for the hotels list
-  //  hotelCard.documentquerySelector(".stars").disabled = true
   bookingFormEl.append(flightCard)
 }
 
