@@ -96,86 +96,86 @@ Hyatt_Centric = Hotel.create(
 # Flights
     
 Janurary = Flight.create(
-    to: "La Aurora International Airport",
-    from: "Phoenix Sky Harbor International Airport",
+    to: "Guatemala City Airport",
+    from: "Phoenix Sky Harbor Intl. Airport",
     departure: "Janurary",
     price: 180
 )
 
 Feburary = Flight.create(
-    to: "La Aurora International Airport",
-    from: "Phoenix Sky Harbor International Airport",
+    to: "Guatemala City Airport",
+    from: "Phoenix Sky Harbor Intl Airport",
     departure: "Feburary",
     price: 230
 )
 
 March = Flight.create(
-    to: "La Aurora International Airport",
-    from: "Phoenix Sky Harbor International Airport",
+    to: "Guatemala City Airport",
+    from: "Phoenix Sky Harbor Intl. Airport",
     departure: "March",
     price: 200
 )
 
 April = Flight.create(
-    to: "La Aurora International Airport",
-    from: "Phoenix Sky Harbor International Airport",
+    to: "Guatemala City Airport",
+    from: "Phoenix Sky Harbor Intl. Airport",
     departure: "April",
     price: 270
 )
 
 
 May = Flight.create(
-    to: "La Aurora International Airport",
-    from: "Phoenix Sky Harbor International Airport",
+    to: "Guatemala City Airport",
+    from: "Phoenix Sky Harbor Intl. Airport",
     departure: "May",
     price: 330
 )
 
 June = Flight.create(
-    to: "La Aurora International Airport",
-    from: "Phoenix Sky Harbor International Airport",
+    to: "Guatemala City Airport",
+    from: "Phoenix Sky Harbor Intl. Airport",
     departure: "June",
     price: 300
 )
 
 July = Flight.create(
-    to: "La Aurora International Airport",
-    from: "Phoenix Sky Harbor International Airport",
+    to: "Guatemala City Airport",
+    from: "Phoenix Sky Harbor Intl. Airport",
     departure: "July",
     price: 680
 )
 
 August = Flight.create(
-    to: "La Aurora International Airport",
-    from: "Phoenix Sky Harbor International Airport",
+    to: "Guatemala City Airport",
+    from: "Phoenix Sky Harbor Int. Airport",
     departure: "August",
     price: 500
 )
 
 September = Flight.create(
-    to: "La Aurora International Airport",
-    from: "Phoenix Sky Harbor International Airport",
+    to: "Guatemala City Airport",
+    from: "Phoenix Sky Harbor Intl. Airport",
     departure: "September",
     price: 560
 )
 
 October = Flight.create(
-    to: "La Aurora International Airport",
-    from: "Phoenix Sky Harbor International Airport",
+    to: "Guatemala City Airport",
+    from: "Phoenix Sky Harbor Intl. Airport",
     departure: "October",
     price: 240
 )
 
 November = Flight.create(
-    to: "La Aurora International Airport",
-    from: "Phoenix Sky Harbor International Airport",
+    to: "Guatemala City Airport",
+    from: "Phoenix Sky Harbor Intl. Airport",
     departure: "November",
     price: 130
 )
 
 December = Flight.create(
-    to: "La Aurora International Airport",
-    from: "Phoenix Sky Harbor International Airport",
+    to: "Guatemala City Airport",
+    from: "Phoenix Sky Harbor Intl. Airport",
     departure: "December",
     price: 180
 )
