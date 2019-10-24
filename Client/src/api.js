@@ -16,7 +16,7 @@
 
     //*create a new hotel
       
-   const createHotelBooking = (id,hotel) => {
+   createBooking = (review, rating, user_id, hotel_id, flight_id) => {
     fetch(BOOKINGS_URL,{
       method: `POST`,
       headers: {
@@ -24,14 +24,13 @@
           'Content-Type': 'application/json'
         },
       body: JSON.stringify({
-          user_id: id,
-          name: hotel.name,
-          price: hotel.price,
-          stars:  hotel.stars,
-          location: hotel.location,
-          url: hotel.url
-       })
-     }).then(resp => resp.json())
+        review: review,
+        rating: rating,
+        user_id: user_id,
+        hotel_id:  hotel_id,
+        flight_id: flight_id
+      })
+     })
    }
    
    //*update hotel star rating 
@@ -69,31 +68,31 @@
  fetch(BOOKINGS_URL).then(resp => resp.json())
 
 
- const bookingsApi = [
-  {
-  "id": 1,
-  "review": "Clean Hotel, No delays",
-  "user": {
-  "id": 1,
-  "first_name": "Dr",
-  "last_name": "No",
-  "nationality": "british",
-  },
-  "hotel": {
-  "id": 1,
-  "name": "La Bastide de Gordes",
-  "nights": 3,
-  "stars": 3,
-  "location": "Gordes, Provence, France",
-  "url": "https://www.telegraph.co.uk/content/dam/Travel/hotels/europe/france/provence/Bastide-de-Gordes-Provence-summary-large.jpg",
-  },
-  "flight": {
-  "id": 1,
-  "to": "Marseille Airport",
-  "from": "London Heathrow",
-  "departure": "2019-05-30T00:20:19.500Z",
-  "arrival": "2019-05-30T00:20:19.500Z",
-  "price": "£180"
-  }
-  }
-  ]
+//  const bookingsApi = [
+//   {
+//   "id": 1,
+//   "review": "Clean Hotel, No delays",
+//   "user": {
+//   "id": 1,
+//   "first_name": "Dr",
+//   "last_name": "No",
+//   "nationality": "british",
+//   },
+//   "hotel": {
+//   "id": 1,
+//   "name": "La Bastide de Gordes",
+//   "nights": 3,
+//   "stars": 3,
+//   "location": "Gordes, Provence, France",
+//   "url": "https://www.telegraph.co.uk/content/dam/Travel/hotels/europe/france/provence/Bastide-de-Gordes-Provence-summary-large.jpg",
+//   },
+//   "flight": {
+//   "id": 1,
+//   "to": "Marseille Airport",
+//   "from": "London Heathrow",
+//   "departure": "2019-05-30T00:20:19.500Z",
+//   "arrival": "2019-05-30T00:20:19.500Z",
+//   "price": "£180"
+//   }
+//   }
+//   ]

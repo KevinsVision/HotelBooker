@@ -12,10 +12,10 @@ const hiddennField = document.querySelector("#specific-hotel")
 document.addEventListener("DOMContentLoaded", () => {
   
   fetchHotels().then(addHotels)
-
-  addBookings()
-
   fetchFlights().then(addFlights)
+
+  createBooking()
+
   //! a)
   // getUserHotelBookings().then(addBookings)
   //! b) 
@@ -35,15 +35,15 @@ const renderFlight = (flight) => {
   flightCard.innerHTML =`
   <table id="flights">
   <tr>
-    <th>Flying to:</th>
-    <th>During the Month of:</th>
     <th>Flying from:</th>
+    <th>During the Month of:</th>
+    <th>Flying to:</th>
     <th>Lowest Price $$</th>
   </tr>
   <tr>
-    <td>${flight.to}</td>
-    <td>${flight.departure}</td>
     <td>${flight.from}</td>
+    <td>${flight.departure}</td>
+    <td>${flight.to}</td>
     <td>$${flight.price}</td>
   </tr>
   </table>
@@ -121,7 +121,7 @@ const renderHotel = (hotel) => {
   }else {
   BookingForm.style.display = 'none'
   }
-  hiddennField.value = event.target.id
+  bookHotelBtn.value = event.target.id
   })
 
     // wanted to disable the stars buttons for the hotels list
@@ -137,7 +137,7 @@ bookingFormEl.addEventListener("submit",e => {
 let nameOfHotel = event.target.children["hotel-name"].value
 let numOfNights = parseInt(event.target.nights.value,10)
 //  debugger   
-hotel = hotels.find( hotel => hotel.name == nameOfHotel);
+hotel = fetchHotels.find( hotel => hotel.name == nameOfHotel);
 //in the db we need params[:nights] so we add nights to our hotel object from userInput
 hotel["nights"] = numOfNights 
 createHotelBooking(USER_ID,hotel) 
@@ -153,7 +153,7 @@ e.target.reset()
 let addBookings = () => {
   // getUserHotelBookings()
   // .then(resp => resp.hotels.forEach(booking => renderBooking(booking)))
-  bookingsApi.forEach(booking => renderBooking(booking))
+  createBooking.forEach(booking => renderBooking(booking))
 }
 
 
@@ -177,7 +177,7 @@ let renderBooking = booking =>{
     <h3 class="hotel_name" > ${booking.hotel.name} </h3>
     <img class="hotel_image"src="${booking.hotel.url}"/>
     <p class="current-rating"> Current rating: ${booking.hotel.stars} </p>
-    <p style='text-align:center'> Rate your hotel
+    <p style="text-align:center"> Rate your hotel </p>
     <form id="rate-your-hotel" action="#" method="post">
     <input type="submit" name="rate" value="rate" class="submit">
     <select class="input-rating"name="rating">

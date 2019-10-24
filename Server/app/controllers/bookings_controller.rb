@@ -18,9 +18,14 @@ class BookingsController < ApplicationController
         end
     end
 
+    def new
+        booking = Booking.new
+    end
+
     def create
-        booking = booking.new(
+        booking = Booking.create(
             review: params[:review],
+            rating: params[:rating],
             user_id: params[:user_id],
             hotel_id: params[:hotel_id], 
             flight_id: params[:flight_id]
